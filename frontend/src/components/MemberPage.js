@@ -32,7 +32,7 @@ export const MemberPage = () => {
         setAuthorized(true)
       })
       .catch(err => {
-        // console.log('ERROR', err)
+        console.log('ERROR', err)
       })
   }, [userId, accessToken])
 

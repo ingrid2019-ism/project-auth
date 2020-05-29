@@ -88,7 +88,7 @@ app.post('/sessions', async (req, res) => {
     const { email, password } = req.body
     const user = await User.findOne({ email })
     if (user && bcrypt.compareSync(password, user.password)) {
-      res.json({ userId: user._id, accsessToken: user.accsessToken })
+      res.json({ userId: user._id, accessToken: user.accessToken })
     } else {
       res.json({ notFound: true, message: 'wrong username or password' })
     }

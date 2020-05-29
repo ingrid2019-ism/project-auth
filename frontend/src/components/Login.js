@@ -55,7 +55,7 @@ export const Login = () => {
           <label >Username/Email  </label>
           <input value={email} placeholder='Enter Email' type='email' name='email' onChange={event => { setEmail(event.target.value) }} required></input>
 
-          <label>Password     </label>
+          <label>Password</label>
           <input value={password} placeholder='Enter Password' type='password' name='password' onChange={event => { setPassword(event.target.value) }} required>
           </input>
           {errorMsg && <div className='error-message'> {errorMsg} </div>}
