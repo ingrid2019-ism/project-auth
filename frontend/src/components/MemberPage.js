@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 // const URL = 'http://localhost:9000/users'
 // const URL = 'https://pb-auth-api.herokuapp.com/users' 
 //const URL = process.env.REACT_APP_API_URL || 'http://localhost:8080/users'
-const URL = 'http://localhost:8080/users'
+const URL = process.env.REACT_APP_API_URL || 'https://express-deploying.herokuapp.com/users'
 
 
 export const MemberPage = () => {

@@ -4,7 +4,7 @@ import { useHistory } from 'react-router'
 // const URL = 'http://localhost:9000/sessions'
 // const URL = 'https://pb-auth-api.herokuapp.com/sessions'
 // const URL = process.env.REACT_APP_API_URL || 'http://localhost:8080/sessions'
-const URL = 'http://localhost:8080/sessions'
+const URL = process.env.REACT_APP_API_URL || 'https://express-deploying.herokuapp.com/sessions'
 
 
 export const Login = () => {
@@ -39,7 +39,7 @@ export const Login = () => {
           window.localStorage.setItem('userId', user.userId)
           window.localStorage.setItem('accessToken', user.accessToken)
           //window.location.href = '/MemberPage'
-          history.push('/MemberPage') /** Viktor */
+          history.push('/MemberPage')
         }
       })
       .catch(err => console.log('error:', err))
