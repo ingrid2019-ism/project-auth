@@ -94,7 +94,7 @@ app.post('/sessions', async (req, res) => {
 })
 
 /*
-//Login user
+//Login user here
 app.post('/sessions', async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
   if (user && bcrypt.compareSync(req.body.password, user.password)) {
