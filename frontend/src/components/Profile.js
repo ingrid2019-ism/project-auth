@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
-// const URL = 'http://localhost:9000/users'
-// const URL = 'https://pb-auth-api.herokuapp.com/users' 
-//const URL = process.env.REACT_APP_API_URL || 'http://localhost:8080/users'
 const URL = process.env.REACT_APP_API_URL || 'https://express-deploying.herokuapp.com/users'
 
-
-export const MemberPage = () => {
+export const Profile = () => {
   const accessToken = window.localStorage.getItem('accessToken')
   const userId = window.localStorage.getItem('userId')
   const [authorized, setAuthorized] = useState(false)
@@ -14,7 +10,7 @@ export const MemberPage = () => {
 
   useEffect(() => {
     fetch(`${URL}/${userId}`, {
-      method: 'GET', // changed from POST
+      method: 'GET',
       headers: {
         Authorization: accessToken
       }
@@ -23,7 +19,6 @@ export const MemberPage = () => {
         if (response.ok) {
           return response.json()
         } else {
-          //throws error message and handles it in .catch
           throw new Error(response.json())
         }
       })
@@ -42,26 +37,23 @@ export const MemberPage = () => {
   }
 
   return (
-
     <div>
-      {/* if authorized display this member section */}
+      {/* if authorized show this section */}
       {authorized &&
-        <section className='memberSection' >
-          <h2>Member information</h2>
-          <h3>{user.name}</h3>
-          <h3>You can't imagine how awesome you are!</h3>
-          <div className='infoContainer'>
-            <button id='logout' className='btn' onClick={() => handleLogOut()} type='button'>
+        <section >
+          <h3>Profile information</h3>
+          <h2>Welcome {user.name}</h2>
+          <h3>This is your secret page</h3>
+          <div>
+            <button id='logout' onClick={() => handleLogOut()} type='button'>
               Log Out
           </button>
           </div>
         </section>
       }
-      {/* if not authorized display message */}
-      {!authorized && <div className='memberSection'> You are not authorized </div>}
+      {!authorized && <div> You are not authorized </div>}
     </div>
 
   )
 }
 
-export default MemberPage

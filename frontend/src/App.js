@@ -1,25 +1,23 @@
 import React from 'react'
-
-import Login from './components/Login'
-import MemberPage from './components/MemberPage'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import Registration from './components/Registration' // Van´s LoginForm
+import { LogIn } from './components/LogIn'
+import { Profile } from './components/Profile'
+import { SignUp } from './components/SignUp'
 
 export const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        {/* route for signing up new member and logging in excisting member  */}
+        {/* route for signing up new user and logging in user  */}
         <Route path='/' exact>
-
-          <div className='authContainer'>
-            <Registration />
-            <Login />
+          <div>
+            <SignUp />
+            <LogIn />
           </div>
         </Route>
-        {/* Route for memberpage   */}
-        <Route path='/MemberPage'>
-          <MemberPage />
+        {/* Route for profile   */}
+        <Route path='/Profile'>
+          <Profile />
         </Route>
 
       </Switch>
