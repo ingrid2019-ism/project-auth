@@ -42,7 +42,7 @@ export const MemberPage = () => {
   return (
 
     <div>
-      {/* if authorized display member section */}
+      {/* if authorized display this member section */}
       {authorized &&
         <section className='memberSection' >
           <h2>Member information</h2>
