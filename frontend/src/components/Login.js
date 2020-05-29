@@ -3,7 +3,7 @@ import { useHistory } from 'react-router' /** Viktor */
 
 // const URL = 'http://localhost:9000/sessions'
 // const URL = 'https://pb-auth-api.herokuapp.com/sessions'
-const URL = process.env.REACT_APP_API_URL || 'https://pb-auth-api.herokuapp.com/sessions'
+const URL = process.env.REACT_APP_API_URL || 'http://localhost:8080/sessions'
 
 export const Login = () => {
   const [email, setEmail] = useState('')

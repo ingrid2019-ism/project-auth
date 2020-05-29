@@ -5,7 +5,7 @@ import mongoose from 'mongoose'
 import crypto from 'crypto'
 import bcrypt from 'bcryptjs'
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/authAPI"
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/authAPI2"
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.Promise = Promise
 mongoose.set('useCreateIndex', true);
@@ -29,6 +29,7 @@ const User = mongoose.model('User', {
   }
 })
 
+
 const authenticateUser = async (req, res, next) => {
   try {
     const user = await User.findOne({ accessToken: req.header('Authorization') })
@@ -44,6 +45,7 @@ const authenticateUser = async (req, res, next) => {
       .json({ message: 'access token missing or wrong', errors: err.message })
   }
 }
+
 
 //   PORT=9000 npm start
 const port = process.env.PORT || 8080
