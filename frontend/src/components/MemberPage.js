@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 
 // const URL = 'http://localhost:9000/users'
 // const URL = 'https://pb-auth-api.herokuapp.com/users' 
-const URL = process.env.REACT_APP_API_URL || 'http://localhost:8080/users'
+//const URL = process.env.REACT_APP_API_URL || 'http://localhost:8080/users'
+const URL = 'http://localhost:8080/users'
+
 
 export const MemberPage = () => {
   const accessToken = window.localStorage.getItem('accessToken')
