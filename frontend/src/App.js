@@ -1,90 +1,28 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-const URL = 'http://localhost:8080/users'
+import Login from './components/Login'
+import MemberPage from './components/MemberPage'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import Registration from './components/Registration' // Van´s LoginForm
 
 export const App = () => {
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
-  const handleSubmit = event => {
-    event.preventDefault()
-
-    fetch(URL, {
-      method: 'POST',
-      body: JSON.stringify({ name, password }),
-      headers: { 'Content-Type': 'application/json' }
-    })
-      .then(res => res.json())
-      .then(json => console.log(json))
-      .catch(err => console.log('error:', err))
-  }
-
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <h1>Sign up</h1>
-        <label>
-          name
-          <input
-            required
-            value={name}
-            onChange={event => setName(event.target.value)}
-          />
-        </label>
-        <label>
-          email
-          <input
-            required
-            value={email}
-            onChange={event => setEmail(event.target.value)}
-          />
-        </label>
-        <label>
-          password
-          <input
-            required
-            value={password}
-            onChange={event => setPassword(event.target.value)}
-          />
-        </label>
-        <button type="submit" onClick={handleSubmit}>
-          SIGN UP
-          </button>
-      </form>
-      <div>
-        <form onSubmit={handleSubmit}>
-          <h1>Sign in</h1>
-          <label>
-            name
-          <input
-              required
-              value={name}
-              onChange={event => setName(event.target.value)}
-            />
-          </label>
-          <label>
-            email
-          <input
-              required
-              value={email}
-              onChange={event => setEmail(event.target.value)}
-            />
-          </label>
-          <label>
-            password
-          <input
-              required
-              value={password}
-              onChange={event => setPassword(event.target.value)}
-            />
-          </label>
-          <button type="submit" onClick={handleSubmit}>
-            SIGN UP
-          </button>
-        </form>
-      </div>
-    </div>
+    <BrowserRouter>
+      <Switch>
+        {/* route for signing up new member and logging in excisting member  */}
+        <Route path='/' exact>
 
+          <div className='authContainer'>
+            <Registration />
+            <Login />
+          </div>
+        </Route>
+        {/* Route for memberpage   */}
+        <Route path='/MemberPage'>
+          <MemberPage />
+        </Route>
+
+      </Switch>
+    </BrowserRouter>
   )
 }
