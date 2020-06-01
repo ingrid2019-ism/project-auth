@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { Container, Title, SmallTitle, Button } from './StyledComponents'
 
 const URL = process.env.REACT_APP_API_URL || 'https://express-deploying.herokuapp.com/users'
 
@@ -30,30 +31,25 @@ export const Profile = () => {
         console.log('ERROR', err)
       })
   }, [userId, accessToken])
-
   const handleLogOut = () => {
     window.location.href = '/' //return to start page
     window.localStorage.clear() // clears data
   }
-
   return (
-    <div>
+    <Container>
       {/* if authorized show this section */}
       {authorized &&
         <section >
-          <h3>Profile information</h3>
-          <h2>Welcome {user.name}</h2>
-          <h3>This is your secret page</h3>
-          <div>
-            <button id='logout' onClick={() => handleLogOut()} type='button'>
-              Log Out
-          </button>
-          </div>
+          <SmallTitle>Profile information</SmallTitle>
+          <Title>Welcome {user.name}</Title>
+          <SmallTitle>This is your secret page</SmallTitle>
+          <Button
+            onClick={() => handleLogOut()}
+          >Log Out
+           </Button>
         </section>
       }
-      {!authorized && <div> You are not authorized! </div>}
-    </div>
-
+      {!authorized && <div> You are not authorized </div>}
+    </Container>
   )
 }
-

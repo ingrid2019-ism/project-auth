@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router'
+import { Container, Title, Content, InputField, Button } from './StyledComponents'
 
 const URL = process.env.REACT_APP_API_URL || 'https://express-deploying.herokuapp.com/sessions'
 
@@ -9,10 +10,9 @@ export const LogIn = () => {
   const [errorMsg, setErrorMsg] = useState(null)
   const history = useHistory()
 
-  // Log in an existing user
+  // To log in an exicting user
   const handleFormSubmit = event => {
     event.preventDefault()
-
     fetch(URL, {
       method: 'POST',
       body: JSON.stringify({ email, password }),
@@ -39,28 +39,35 @@ export const LogIn = () => {
       })
       .catch(err => console.log('error:', err))
   }
-
-  // If user is logged out, show this login form
+  // If user is logged out, show login form
   return (
-    <section>
+    <Container>
       <form onSubmit={handleFormSubmit}>
-        <h1><strong>Log in</strong></h1>
-        <h4>Enter your login details here: </h4>
-        <div>
-          <label >Email  </label>
-          <input value={email} placeholder='Enter Email' type='email' name='email' onChange={event => { setEmail(event.target.value) }} required></input>
-          <br />
-          <br />
-          <label>Password </label>
-          <input value={password} placeholder='Enter Password' type='password' name='password' onChange={event => { setPassword(event.target.value) }} required>
-          </input>
-          <br />
-          <br />
+        <Title>Hey You</Title>
+        <Title>Welcome Back</Title>
+        <Content>
+          <InputField
+            value={email}
+            placeholder='Enter Email'
+            type='email'
+            name='email'
+            onChange={event => { setEmail(event.target.value) }}
+            required
+          />
+          <InputField value={password}
+            placeholder='Enter Password'
+            type='password'
+            name='password'
+            onChange={event => { setPassword(event.target.value) }}
+            required
+          />
           {errorMsg && <div> {errorMsg} </div>}
-          <button onClick={handleFormSubmit} type="submit">Login</button>
-        </div>
+          <Button onClick={handleFormSubmit}
+            type="submit"
+          >Login
+          </Button>
+        </Content>
       </form>
-    </section>
+    </Container>
   )
 }
-
