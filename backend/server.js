@@ -5,7 +5,7 @@ import mongoose from 'mongoose'
 import crypto from 'crypto'
 import bcrypt from 'bcryptjs'
 
-const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/authAPI2"
+const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/authAPI3"
 mongoose.connect(mongoUrl, { useNewUrlParser: true, useUnifiedTopology: true })
 mongoose.Promise = Promise
 mongoose.set('useCreateIndex', true);

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router'
 import { Container, Title, Content, InputField, Button } from './StyledComponents'
 
-const URL = process.env.REACT_APP_API_URL || 'https://express-deploying.herokuapp.com/sessions'
+const URL = process.env.REACT_APP_API_URL || 'http://localhost:8080/sessions'
 
 export const LogIn = () => {
   const [email, setEmail] = useState('')

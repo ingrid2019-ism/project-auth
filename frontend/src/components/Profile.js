@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Container, Title, SmallTitle, Button } from './StyledComponents'
 
-const URL = process.env.REACT_APP_API_URL || 'https://express-deploying.herokuapp.com/users'
+const URL = process.env.REACT_APP_API_URL || 'http://localhost:8080/users'
 
 export const Profile = () => {
   const accessToken = window.localStorage.getItem('accessToken')
