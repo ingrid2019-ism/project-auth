@@ -9,7 +9,7 @@ export const LogIn = () => {
   const [errorMsg, setErrorMsg] = useState(null)
   const history = useHistory()
 
-  // To log in an existing user
+  // Log in an existing user
   const handleFormSubmit = event => {
     event.preventDefault()
 
