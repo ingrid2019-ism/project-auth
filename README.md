@@ -4,7 +4,7 @@ This assignment was to build a backend API, and a React frontend. API with authe
 
 ## The problem
 
-We started by building the backend and checked the functionality with mongoDB Compass. After that we built the frontend using react and react routes.
+We started by building the backend and checked the functionality with mongoDB Compass. Then we built the frontend using react and react routes.
 
 Tech: 
 React
