@@ -20,7 +20,7 @@ export const SignUp = () => {
       .then(res => {
         if (res.ok) {
           setSuccessMessage('User created!') // set success message
-          setErrorMessage(false) // set error message to false
+          setErrorMessage(false) // set error message to false here
           return res.json()
         }
         else {

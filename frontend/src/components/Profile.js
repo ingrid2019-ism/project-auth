@@ -51,7 +51,7 @@ export const Profile = () => {
           </div>
         </section>
       }
-      {!authorized && <div> You are not authorized </div>}
+      {!authorized && <div> You are not authorized! </div>}
     </div>
 
   )

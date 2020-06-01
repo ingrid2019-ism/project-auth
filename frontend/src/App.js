@@ -8,7 +8,7 @@ export const App = () => {
   return (
     <BrowserRouter>
       <Switch>
-        {/* route for signing up new user and logging in user  */}
+        {/* this route for signing up new user and logging in user  */}
         <Route path='/' exact>
           <div>
             <SignUp />

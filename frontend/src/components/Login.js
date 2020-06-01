@@ -9,7 +9,7 @@ export const LogIn = () => {
   const [errorMsg, setErrorMsg] = useState(null)
   const history = useHistory()
 
-  // To log in an exicting user
+  // To log in an existing user
   const handleFormSubmit = event => {
     event.preventDefault()
 
@@ -40,12 +40,12 @@ export const LogIn = () => {
       .catch(err => console.log('error:', err))
   }
 
-  // If user is logged out, show login form
+  // If user is logged out, show this login form
   return (
     <section>
       <form onSubmit={handleFormSubmit}>
         <h1><strong>Log in</strong></h1>
-        <h4>Enter your login details here </h4>
+        <h4>Enter your login details here: </h4>
         <div>
           <label >Email  </label>
           <input value={email} placeholder='Enter Email' type='email' name='email' onChange={event => { setEmail(event.target.value) }} required></input>
